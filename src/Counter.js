@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 /**
  * A counter button: tap the button to increase the count.
  */
-class Counter extends React.Component {
+class Counter extends Component {
   constructor() {
     super();
     this.state = {
