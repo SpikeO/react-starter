@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import Page from '../Page/Page';
 import Home from '../Home/Home';
+import NotFound from '../NotFound/NotFound';
 
 class Container extends Component {
   render() {
@@ -20,8 +21,6 @@ class Container extends Component {
 Container.propTypes = {
   children: React.PropTypes.node,
 };
-
-const NotFound = () => (<h1>404.. This page is not found!</h1>);
 
 class App extends Component {
   render() {
