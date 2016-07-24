@@ -10,6 +10,10 @@ var config = {
     filename: 'bundle.js',
   },
   module: {
+    preLoaders: [
+      // Javascript
+      { test: /\.jsx?$/, loader: 'eslint', exclude: /node_modules/ }
+    ],
     loaders: [
       {
         test: /\.js$/,
@@ -32,5 +36,9 @@ var config = {
       path.join(__dirname, 'node_modules'),
     ],
   },
+  eslint: {
+    failOnWarning: false,
+    failOnError: true
+  }
 };
 module.exports = config;

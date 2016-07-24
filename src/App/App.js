@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router';
+import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import Page from '../Page/Page';
+import Home from '../Home/Home';
 
 class Container extends Component {
   render() {
@@ -11,14 +12,16 @@ class Container extends Component {
           <li><Link to="/">/</Link></li>
           <li><Link to="/page">Page</Link></li>
         </ul>
-        {this.props.children}
+        { this.props.children }
       </div>
     );
   }
 }
+Container.propTypes = {
+  children: React.PropTypes.node,
+};
 
 const NotFound = () => (<h1>404.. This page is not found!</h1>);
-const Home = () => (<h1>Hello from Home!</h1>);
 
 class App extends Component {
   render() {
@@ -33,4 +36,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;
