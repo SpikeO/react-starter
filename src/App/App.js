@@ -3,14 +3,14 @@ import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import Page from '../Page/Page';
 import Home from '../Home/Home';
 import NotFound from '../NotFound/NotFound';
-require('./App.scss');
+const styles = require('./App.scss');
 
 class Container extends Component {
   render() {
     return (
       <div>
         <h1>App</h1>
-        <ul>
+        <ul className={styles.menu}>
           <li><Link to="/">/</Link></li>
           <li><Link to="/page">Page</Link></li>
         </ul>

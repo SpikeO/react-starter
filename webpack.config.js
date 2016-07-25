@@ -13,7 +13,7 @@ var config = {
   },
   module: {
     preLoaders: [
-      { test: /\.jsx?$/, loader: 'eslint', exclude: /node_modules/ }
+      {test: /\.jsx?$/, loader: 'eslint', exclude: /node_modules/}
     ],
     loaders: [
       {
@@ -22,12 +22,12 @@ var config = {
         loaders: ['babel'],
       },
       {
-        test:   /\.css$/,
+        test: /\.css$/,
         loader: "style-loader!css-loader?modules"
       },
       {
-        test:   /\.scss$/,
-        loader: "style-loader!css-loader?modules!postcss-loader!sass-loader"
+        test: /\.scss$/,
+        loader: "style-loader!css-loader?modules!postcss-loader"
       }
     ],
   },
@@ -45,10 +45,12 @@ var config = {
     failOnWarning: false,
     failOnError: true
   },
-  postcss: function() {
-    return [autoprefixer({
-      browsers: ['last 3 versions']
-    })];
+  postcss: function () {
+    return [
+      precss,
+      autoprefixer({
+        browsers: ['last 3 versions']
+      })];
   }
 };
 module.exports = config;
