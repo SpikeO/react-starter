@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
+const styles = require('./Page.scss');
 
 class Page extends Component {
 
   render() {
     return (
-      <button>Test</button>
+      <div className={styles.divTest}>
+        <button className={styles.testbtn}>
+          Test123
+        </button>
+      </div>
     );
   }
 }

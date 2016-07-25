@@ -3,6 +3,7 @@ import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import Page from '../Page/Page';
 import Home from '../Home/Home';
 import NotFound from '../NotFound/NotFound';
+require('./App.scss');
 
 class Container extends Component {
   render() {

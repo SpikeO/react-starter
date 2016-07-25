@@ -1,4 +1,6 @@
 var path = require('path');
+var precss = require('precss');
+var autoprefixer = require('autoprefixer');
 
 var config = {
   context: path.join(__dirname, 'src'),
@@ -11,7 +13,6 @@ var config = {
   },
   module: {
     preLoaders: [
-      // Javascript
       { test: /\.jsx?$/, loader: 'eslint', exclude: /node_modules/ }
     ],
     loaders: [
@@ -21,8 +22,12 @@ var config = {
         loaders: ['babel'],
       },
       {
-        test: /\.css$/,
+        test:   /\.css$/,
         loader: "style-loader!css-loader?modules"
+      },
+      {
+        test:   /\.scss$/,
+        loader: "style-loader!css-loader?modules!postcss-loader!sass-loader"
       }
     ],
   },
@@ -39,6 +44,11 @@ var config = {
   eslint: {
     failOnWarning: false,
     failOnError: true
+  },
+  postcss: function() {
+    return [autoprefixer({
+      browsers: ['last 3 versions']
+    })];
   }
 };
 module.exports = config;
