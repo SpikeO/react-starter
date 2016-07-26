@@ -6,7 +6,7 @@ Following plugins are used in PostCSS:
 - Autoprefixer
 - Precss
 
-New plugins can be added by installing them through NPM and then adding them to [webpack.config.js](webpack.config.js).
+New plugins can be added by installing them through NPM and then adding them to [webpack.config.js](../webpack.config.js).
 ```
 postcss: function () {
     return [
