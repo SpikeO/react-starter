@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/SpikeO/react-starter.png?label=ready&title=Ready)](https://waffle.io/SpikeO/react-starter)
 # Michaël's React starter
 
 ###Description
