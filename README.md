@@ -1,13 +1,13 @@
 # Michaël's React starter
 
 ###Description
-ReactJS starter kit: ES6, Webpack, React Router, NodeJS, PostCSS
+ReactJS starter kit: ES6, Webpack, React Router, NodeJS, PostCSS, Redux
 
 **Features to add:**
-- Redux
 - Redux router
 - ExpressJS
 - Normalizr
+- Redux @connect annotation
 
 ###Docs
 - [Setup and usage](docs/SetupAndUsage.md)
