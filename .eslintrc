@@ -1,11 +1,18 @@
-{ "extends": "eslint-config-airbnb",
+{
+  "extends":
+  [
+    "eslint-config-airbnb-base",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "env": {
     "browser": true,
     "node": true,
     "mocha": true
   },
   "rules": {
-    "strict": 0,
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
     "react/no-multi-comp": 0,
     "import/default": 0,
     "import/no-duplicates": 0,
