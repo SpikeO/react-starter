@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "compile": "webpack",
-    "start": "node server.js"
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
