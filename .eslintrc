@@ -1,19 +1,12 @@
-{
-  "extends":
-[
-  "eslint-config-airbnb-base",
-  "eslint:recommended",
-  "plugin:react/recommended"
-],
+{ "extends": "eslint-config-airbnb",
   "env": {
     "browser": true,
     "node": true,
     "mocha": true
   },
   "rules": {
+    "strict": 0,
     "react/no-multi-comp": 0,
-    "react/jsx-uses-react": "error",
-    "react/jsx-uses-vars": "error",
     "import/default": 0,
     "import/no-duplicates": 0,
     "import/named": 0,
@@ -28,11 +21,14 @@
   "plugins": [
     "react", "import"
   ],
-  "parserOptions": {
-    "ecmaVersion": 6,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
+  "settings": {
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "moduleDirectory": ["node_modules", "src"]
     }
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
   }
 }

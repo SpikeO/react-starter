@@ -40,7 +40,7 @@ class App extends Component {
             <IndexRoute component={Home}/>
             <Route path="page" component={Page}/>
             <Route path="redux-example" component={ReduxExample}/>
-            <Route path='*' component={NotFound} />
+            <Route path="*" component={NotFound} />
           </Route>
         </Router>
       </Provider>
