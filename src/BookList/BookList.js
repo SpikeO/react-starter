@@ -1,23 +1,22 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import selectBook from '../redux/actions/index';
-import styles from './BookList.scss';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../redux/actions/index';
+const styles = require('./BookList.scss');
 
 @connect(
-  state => ({books: state.books}),
-  {selectBook})
+state => ({ books: state.books }),
+{ selectBook: actions.selectBook })
 class BookList extends Component {
   renderList() {
-    return this.props.books.map((book) => {
-      return (
-        <li
-          key={book.title}
-          onClick={() => this.props.selectBook(book) }
-          className={styles.listgroupitem}>
-          { book.title }
-        </li>
-      );
-    });
+    return this.props.books.map((book) => (
+      <li
+        key={book.title}
+        onClick={() => this.props.selectBook(book)}
+        className={styles.listgroupitem}
+      >
+        {book.title}
+      </li>
+    ));
   }
 
   render() {
@@ -29,12 +28,13 @@ class BookList extends Component {
   }
 }
 BookList.propTypes = {
-  books: React.PropTypes.array,
-  selectBook: React.PropTypes.func
+  books: PropTypes.array,
+  selectBook: PropTypes.func
 };
 BookList.defaultProps = {
   books: [],
-  selectBook: () => {}
+  selectBook: () => {
+  }
 };
 
 export default BookList;
