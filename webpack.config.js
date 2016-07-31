@@ -1,8 +1,8 @@
-var path = require('path');
-var precss = require('precss');
-var autoprefixer = require('autoprefixer');
+const path = require('path');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
 
-var config = {
+const config = {
   context: path.join(__dirname, 'src'),
   entry: [
     './main.js',
@@ -13,7 +13,7 @@ var config = {
   },
   module: {
     preLoaders: [
-      {test: /\.jsx?$/, loader: 'eslint', exclude: /node_modules/}
+      { test: /\.jsx?$/, loader: 'eslint', exclude: /node_modules/ }
     ],
     loaders: [
       {
@@ -23,11 +23,11 @@ var config = {
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader?modules"
+        loader: 'style-loader!css-loader?modules'
       },
       {
         test: /\.scss$/,
-        loader: "style-loader!css-loader?modules!postcss-loader"
+        loader: 'style-loader!css-loader?modules!postcss-loader'
       }
     ],
   },
@@ -45,7 +45,7 @@ var config = {
     failOnWarning: false,
     failOnError: true
   },
-  postcss: function () {
+  postcss: function postcssSetup() {
     return [
       precss,
       autoprefixer({
