@@ -1,16 +1,22 @@
+import 'babel-polyfill';
+
 import React from 'react';
 import { Router, Route, browserHistory, IndexRoute, Link } from 'react-router';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+
+import configureStore from '../redux/createStore';
+import rootSaga from '../redux/sagas';
+
 import Page from '../Page/Page';
 import Home from '../Home/Home';
 import NotFound from '../NotFound/NotFound';
 import ReduxExample from '../ReduxExample/ReduxExample';
-import reducers from '../redux/reducers/index';
+
+const styles = require('./App.scss');
 
 // Set redux store
-const store = createStore(reducers);
-const styles = require('./App.scss');
+const store = configureStore();
+store.runSaga(rootSaga);
 
 const Container = (props) => (
   <div>

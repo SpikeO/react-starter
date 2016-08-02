@@ -5,6 +5,7 @@ const autoprefixer = require('autoprefixer');
 const config = {
   context: path.join(__dirname, 'src'),
   entry: [
+    'babel-polyfill',
     './main.js',
   ],
   output: {
@@ -38,7 +39,7 @@ const config = {
   },
   resolve: {
     root: [
-      path.join(__dirname, 'node_modules'),
+      path.join(__dirname, 'node_modules', 'src'),
     ],
   },
   eslint: {

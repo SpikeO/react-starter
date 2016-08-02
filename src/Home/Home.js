@@ -1,12 +1,10 @@
 import React from 'react';
+import Counter from '../Counter/Counter';
 
 const Home = () => (
   <div>
     <h1 >Hello from Home!</h1>
-    <a href="#">Link test</a>
-    <button className="testbtn">
-      Test123
-    </button>
+    <Counter />
   </div>
 );
 
