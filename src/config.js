@@ -12,23 +12,6 @@ const environment = {
 module.exports = Object.assign({
   host: process.env.HOST || 'localhost',
   port: process.env.PORT,
-  apiHost: process.env.APIHOST || 'localhost',
-  apiPort: process.env.APIPORT,
-  app: {
-    title: '..',
-    description: '',
-    head: {
-      titleTemplate: 'PageTitle - %s',
-      meta: [
-        { name: 'description', content: 'My site\'s description' },
-        { charset: 'utf-8' },
-        { property: 'og:site_name', content: 'SiteName' },
-        { property: 'og:image', content: 'https://react-redux.herokuapp.com/logo.jpg' },
-        { property: 'og:locale', content: 'en_US' },
-        { property: 'og:title', content: 'SiteName' },
-        { property: 'og:description', content: 'My site\'s description' },
-      ]
-    }
-  },
-
+  apiHost: process.env.APIHOST || 'https://api.github.com',
+  apiPort: process.env.APIPORT
 }, environment);
