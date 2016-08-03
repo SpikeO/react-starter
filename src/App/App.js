@@ -11,6 +11,7 @@ import Page from '../Page/Page';
 import Home from '../Home/Home';
 import NotFound from '../NotFound/NotFound';
 import ReduxExample from '../ReduxExample/ReduxExample';
+import GithubSearch from '../GithubSearch/GithubSearch';
 
 const styles = require('./App.scss');
 
@@ -25,6 +26,7 @@ const Container = (props) => (
       <li><Link to="/">/</Link></li>
       <li><Link to="/page">Page</Link></li>
       <li><Link to="/redux-example">Redux Example</Link></li>
+      <li><Link to="/github-search">Github search</Link></li>
     </ul>
     {props.children}
   </div>
@@ -40,6 +42,7 @@ const App = () => (
         <IndexRoute component={Home} />
         <Route path="page" component={Page} />
         <Route path="redux-example" component={ReduxExample} />
+        <Route path="github-search" component={GithubSearch} />
         <Route path="*" component={NotFound} />
       </Route>
     </Router>
