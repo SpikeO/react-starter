@@ -10,8 +10,10 @@ A react starter single page app with some examples.
 - [React router](https://github.com/reactjs/react-router)
 - NodeJS/ExpressJS
 - Redux
-- Redux-saga ([Docs](http://yelouafi.github.io/redux-saga/index.html) - [Guide](docs/ReduxSaga.md)) 
+- Redux-saga ([Docs](http://yelouafi.github.io/redux-saga/index.html) - [Guide](docs/ReduxSaga.md))
 - PostCSS
+- Mongo DB
+- [Webpack dashboard](https://github.com/FormidableLabs/webpack-dashboard?utm_source=hashnode.com)
 
 **Features to add:**
 - Redux router
