@@ -1,33 +1,33 @@
-const express = require('express');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpack = require('webpack');
-const path = require('path');
-const httpProxy = require('http-proxy');
-const cookie = require('react-cookie');
+import express from 'express';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import path from 'path';
+import httpProxy from 'http-proxy';
+import cookie from 'react-cookie';
 
-const webpackConfig = require('../webpack.config.js');
-const config = require('./config');
+import {UserModel} from './schemas';
 
-const app = express();
+
+import webpackConfig from '../webpack.config.js';
+import config from '../src/config';
+
 const compiler = webpack(webpackConfig);
+const app = express();
 const targetUrl = `http://${config.apiHost}:${config.apiPort}/api`;
 
 const proxy = httpProxy.createProxyServer({
   target: targetUrl,
   changeOrigin: true
 });
-
 app.use(express.static(`${__dirname}/www`));
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
-  filename: 'bundle.js',
-  publicPath: '/',
-  stats: {
-    colors: true,
-  },
-  historyApiFallback: true,
+  publicPath: webpackConfig.output.publicPath,
+  noInfo: true
 }));
+app.use(webpackHotMiddleware(compiler));
 
 // Proxy to API server
 app.use('/api', (req, res) => {
@@ -54,8 +54,12 @@ const server = app.listen(3000, () => {
   console.log('Example app listening at http://%s:%s', host, port);
 });
 
-// handle every other route with index.html, which will contain
-// a script tag to your application's JavaScript file(s).
-app.get('*', (request, response) => {
-  response.sendFile(path.resolve(__dirname, '../www', 'index.html'));
+app.get('/mongo', (req, res) => {
+  const testUser = UserModel.find(function(err, doc) {
+    res.send(doc);
+  });
+});
+
+app.get('/*', (request, response) => {
+  response.sendFile(path.join(__dirname, '../www/index.html'));
 });

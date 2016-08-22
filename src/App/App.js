@@ -35,18 +35,22 @@ Container.propTypes = {
   children: React.PropTypes.node,
 };
 
-const App = () => (
-  <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path="/" component={Container}>
-        <IndexRoute component={Home} />
-        <Route path="page" component={Page} />
-        <Route path="redux-example" component={ReduxExample} />
-        <Route path="github-search" component={GithubSearch} />
-        <Route path="*" component={NotFound} />
-      </Route>
-    </Router>
-  </Provider>
-);
+class App extends React.Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <Router history={browserHistory}>
+          <Route path="/" component={Container}>
+            <IndexRoute component={Home} />
+            <Route path="page" component={Page} />
+            <Route path="redux-example" component={ReduxExample} />
+            <Route path="github-search" component={GithubSearch} />
+            <Route path="*" component={NotFound} />
+          </Route>
+        </Router>
+      </Provider>
+    )
+  }
+}
 
 export default App;
