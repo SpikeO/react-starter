@@ -1,16 +1,18 @@
-const path = require('path');
-const precss = require('precss');
-const autoprefixer = require('autoprefixer');
+import path from 'path';
+import precss from 'precss';
+import autoprefixer from 'autoprefixer';
+import webpack from 'webpack';
 
-const config = {
+export default {
+  devtools: 'eval-source-map',
   context: path.join(__dirname, 'src'),
   entry: [
-    'babel-polyfill',
-    './main.js',
+    'webpack-hot-middleware/client',
+    path.join(__dirname, '/src/main.js'),
   ],
   output: {
-    path: path.join(__dirname, 'www'),
-    filename: 'bundle.js',
+    path: '/',
+    publicPath: '/'
   },
   module: {
     preLoaders: [
@@ -20,7 +22,7 @@ const config = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ['babel'],
+        loaders: ['react-hot', 'babel'],
       },
       {
         test: /\.css$/,
@@ -52,6 +54,10 @@ const config = {
       autoprefixer({
         browsers: ['last 3 versions']
       })];
-  }
-};
-module.exports = config;
+  },
+  plugins: [
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ]
+}
