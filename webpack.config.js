@@ -2,7 +2,6 @@ import path from 'path';
 import precss from 'precss';
 import autoprefixer from 'autoprefixer';
 import webpack from 'webpack';
-import DashboardPlugin from 'webpack-dashboard/plugin';
 
 export default {
   devtools: 'eval-source-map',
@@ -60,6 +59,5 @@ export default {
     new webpack.NoErrorsPlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new DashboardPlugin()
   ]
 }

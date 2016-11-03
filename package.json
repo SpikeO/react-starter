@@ -16,7 +16,7 @@
   },
   "betterScripts": {
     "start-dev": {
-      "command": "webpack-dashboard -m -- nodemon --watch server --exec babel-node -- server/server.js",
+      "command": "nodemon --watch server --exec babel-node -- server/server.js",
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "development",
@@ -79,7 +79,6 @@
     "react-hot-loader": "^1.3.0",
     "redux-devtools": "^3.3.1",
     "style-loader": "^0.13.1",
-    "webpack-dashboard": "^0.1.7",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2"
   }

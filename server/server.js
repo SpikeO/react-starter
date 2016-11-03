@@ -5,9 +5,8 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 import path from 'path';
 import httpProxy from 'http-proxy';
 import cookie from 'react-cookie';
-
-import {UserModel} from './schemas';
-
+// MongoDB Schema
+import { UserModel } from './schemas';
 
 import webpackConfig from '../webpack.config.js';
 import config from '../src/config';
@@ -55,9 +54,7 @@ const server = app.listen(3000, () => {
 });
 
 app.get('/mongo', (req, res) => {
-  const testUser = UserModel.find(function(err, doc) {
-    res.send(doc);
-  });
+  UserModel.find((err, doc) => res.send(doc));
 });
 
 app.get('/*', (request, response) => {
